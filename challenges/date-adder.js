@@ -14,7 +14,7 @@
 
 const add = (date, diff) => {
   let newDate = new Date(date);
-  const number = diff.slice(0, -1);
+  const number = +diff.slice(0, -1);
   const operator = diff.slice(-1);
   switch(operator) {
     case 's':
