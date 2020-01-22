@@ -13,7 +13,7 @@
 // y	years
 
 const add = (date, diff) => {
-  let newDate = new Date(date.getTime());
+  let newDate = new Date(date);
   const number = diff.slice(0, -1);
   const operator = diff.slice(-1);
   switch(operator) {
@@ -33,10 +33,10 @@ const add = (date, diff) => {
       newDate = new Date(newDate.getTime() + (number * 7 * 24 * 60 * 60 * 1000));
       break;
     case 'M':
-      newDate = new Date(newDate.setMonth(newDate.getMonth() + number));
+      newDate.setMonth(date.getMonth() + number);
       break;
     case 'y':
-      newDate = new Date(newDate.setFullYear(newDate.getFullYear() + number));
+      newDate.setFullYear(date.getFullYear() + number);
       break;
     default:
       'Error: time operator not recognized.';
