@@ -7,6 +7,7 @@
 const revenue = transactions => {
   return transactions.reduce((acc, transaction) => {
     const transactionDate = new Date(transaction.timestamp);
+    transactionDate.setMinutes(transactionDate.getMinutes() + transactionDate.getTimezoneOffset());
     const key = transactionDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric' }).split(',').join('');
     acc[key] ? 
       acc[key] += transaction.price :
